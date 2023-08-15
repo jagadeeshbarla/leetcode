@@ -21,7 +21,7 @@ public:
             flag = false;
             int min_e = INT_MAX;
             ListNode* min_a = NULL;
-            int mi=0;
+            int mi=-1;
             for(int i=0;i<l.size();i++)
             {
                 if(l[i] == NULL)
@@ -31,24 +31,25 @@ public:
                 if(l[i]->val < min_e )
                 {
                     min_e = l[i]->val;
-                    min_a = l[i];
+                   // min_a = l[i];
                     mi = i;
                 }
             }
             
-            if(min_a !=NULL)
+            //if(min_a !=NULL)
+            if(mi != -1)
             {
                 l[mi] = l[mi]->next;
                 if(ans==NULL)
                 {
                     ans = new ListNode(min_e);
-                    min_a = min_a->next;
+                  //  min_a = min_a->next;
                     curr = ans;
                 }
                 else
                 {
                     ListNode* temp = new ListNode(min_e);
-                    min_a = min_a->next;
+                 //   min_a = min_a->next;
                     curr->next = temp;
                     curr = temp; 
                 }
