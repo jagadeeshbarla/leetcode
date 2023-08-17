@@ -18,7 +18,7 @@ public:
          {
            int j = i-1;
             int flag =1;
-            while(j>=2)
+            while(j>= sqrt(i))
             {
                 if(i%j ==0)
                 {
