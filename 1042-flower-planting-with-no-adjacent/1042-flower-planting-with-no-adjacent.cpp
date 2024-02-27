@@ -48,20 +48,13 @@ public:
     
     vector<int> gardenNoAdj(int n, vector<vector<int>>& path) {
         
-        int s = path.size();
-        for(int i = 0 ; i < s ; i++)
-        {
-            vector<int>t;
-            t.emplace_back(path[i][1]);
-            t.emplace_back(path[i][0]);
-            path.emplace_back(t);
-        }
         vector<int> vis(n,-1);
         vector<int> ans(n,1);
         map<int,vector<int>>m;
         for(int i = 0 ; i < path.size() ;i++)
         {
             m[path[i][0]].emplace_back(path[i][1]);
+            m[path[i][1]].emplace_back(path[i][0]);
         }
         map<int,vector<int>>occupied;
         for(int i = 1 ; i <= n ; i++)
@@ -102,36 +95,3 @@ public:
 }; 
 
 
-
-// vector<int> vis(n,-1);
-//         vector<int> ans(n,1);
-        
-//         for(int i = 0 ; i < path.size() ;i++)
-//         {
-//             m[path[i][0]].emplace_back(path[i][1]);
-//         }
-        
-//         for(int i = 1 ; i <= n ; i++)
-//         {
-//             if(vis[i-1] == -1)
-//             {
-//                 vis[i-1] = 1;
-//                 queue<int>q;
-//                 q.push(i)
-//                 while(!q.empty())
-//                 {
-//                     int x = q.front();
-//                     q.pop();
-//                     for(int j = 0 ; j < m[x].size();j++)
-//                     {
-//                         if(vis[m[x][j]-1] == -1)
-//                         {
-//                             q.push(m[x][j]);
-//                             vis[m[x][j]-1] = 1;                        
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-        
-//         return ans;
