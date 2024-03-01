@@ -26,7 +26,7 @@ public:
         
     }
     int coinChange(vector<int>& coins, int amount) {
-        sort(coins.begin(),coins.end(),greater<int>());
+        //sort(coins.begin(),coins.end(),greater<int>());
         map<int,int>dp;
         int min_coins = INT_MAX;
         min_coins = coinchange(coins,amount,dp);
